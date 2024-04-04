@@ -1,0 +1,12 @@
+table,
+td,
+th {
+  border: 1px solid gainsboro;
+}
+table {
+  width: 100%;
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: #454545;
+}
