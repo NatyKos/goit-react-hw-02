@@ -9,16 +9,15 @@ export default function App() {
     neutral: 0,
     bad: 0,
   });
-  const handleClick = selected => {
+  const updateFeedback = feedbackType => {
     const updateClicks = { ...clicks };
-    updateClicks[selected] += 1;
+    updateClicks[feedbackType] += 1;
     setClicks(updateClicks);
-    console.log(updateClicks);
   };
   return (
     <>
       <Description />
-      <Options onUpdate={handleClick} />
+      <Options onUpdate={updateFeedback} />
       <Feedback feedback={clicks} />
     </>
   );
