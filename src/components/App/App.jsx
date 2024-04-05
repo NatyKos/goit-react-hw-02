@@ -1,27 +1,25 @@
-import Profile from "../Profile/Profile";
-import FriendList from "../FriendList/FriendList";
-import TransactionHistory from "../TransactionHistory/TransactionHistory";
-import userData from "../../userData.json";
-import friends from "../../friends.json"
-import transactions from "../../transactions.json"
+import { useState } from 'react';
+import Description from '../Description/Description';
+import Options from '../Options/Options';
+import Feedback from '../Feedback/Feedback';
 
 export default function App() {
+  const [clicks, setClicks] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
+  const handleClick = selected => {
+    const updateClicks = { ...clicks };
+    updateClicks[selected] += 1;
+    setClicks(updateClicks);
+    console.log(updateClicks);
+  };
   return (
     <>
-      <Profile 
-        profile = {userData}
-      />
-      <FriendList friends={friends} />
-      <TransactionHistory items={transactions} />
+      <Description />
+      <Options onUpdate={handleClick} />
+      <Feedback feedback={clicks} />
     </>
   );
-};
-
-
-
-
-
-
-
-
-
+}
