@@ -7,9 +7,9 @@ export default function Feedback({
   if (total !== 0) {
     return (
       <div className={css.feedback}>
-        <p>Good: {good}</p>
-        <p>Neutral: {neutral}</p>
-        <p>Bad: {bad}</p>
+        <p className={css.good}>Good: {good}</p>
+        <p className={css.neutral}>Neutral: {neutral}</p>
+        <p className={css.bad}>Bad: {bad}</p>
         <p>Total: {total}</p>
         <p>Positive: {positive}%</p>
       </div>
